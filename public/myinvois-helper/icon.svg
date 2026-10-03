@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>PintuNiaga</title>
+  <rect width="1024" height="1024" fill="#FFFFFF"/>
+  <g transform="translate(512 512) scale(1.2) translate(-511 -361)" stroke-linejoin="round" stroke-width="26">
+    <polygon fill="#0B1A30" stroke="#0B1A30" points="258,560 284,480 404,430 378,507"/>
+    <polygon fill="#1D4ED8" stroke="#1D4ED8" points="403,557 456,372 570,324 516,505"/>
+    <polygon fill="#F59E0B" stroke="#F59E0B" points="547,560 622,242 756,182 685,493"/>
+  </g>
+</svg>
