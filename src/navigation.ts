@@ -17,6 +17,7 @@ export const footerData = {
       links: [
         { text: 'Utama', href: getPermalink('/') },
         { text: 'MyInvois Helper', href: getPermalink('/myinvois-helper') },
+        { text: 'MyInvois Helper (English)', href: getPermalink('/myinvois-helper/en') },
         { text: 'Hubungi', href: getPermalink('/hubungi') },
         { text: 'Privasi', href: getPermalink('/privasi') },
         { text: 'Terma', href: getPermalink('/terma') },
