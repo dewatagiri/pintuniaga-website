@@ -19,6 +19,7 @@ export const footerData = {
         { text: 'MyInvois Helper', href: getPermalink('/myinvois-helper') },
         { text: 'Hubungi', href: getPermalink('/hubungi') },
         { text: 'Privasi', href: getPermalink('/privasi') },
+        { text: 'Terma', href: getPermalink('/terma') },
       ],
     },
     {
@@ -26,7 +27,10 @@ export const footerData = {
       links: [{ text: EMAIL, href: EMAIL_HREF }, ...(WHATSAPP_HREF ? [{ text: 'WhatsApp', href: WHATSAPP_HREF }] : [])],
     },
   ],
-  secondaryLinks: [{ text: 'Privasi', href: getPermalink('/privasi') }],
+  secondaryLinks: [
+    { text: 'Terma', href: getPermalink('/terma') },
+    { text: 'Privasi', href: getPermalink('/privasi') },
+  ],
   socialLinks: [
     { ariaLabel: 'Emel', icon: 'tabler:mail', href: EMAIL_HREF },
     ...(WHATSAPP_HREF ? [{ ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: WHATSAPP_HREF }] : []),

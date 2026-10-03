@@ -52,4 +52,24 @@ const metadata = {
       }
     </div>
   </WidgetWrapper>
+
+  <WidgetWrapper id="keselamatan" containerClass="max-w-3xl mx-auto">
+    <div class="rounded-2xl border border-gray-200 p-6 md:p-8 flex gap-4 items-start">
+      <Icon name="tabler:shield-lock" class="w-7 h-7 shrink-0 text-primary" />
+      <div>
+        <h2 class="text-xl font-bold mb-2">Laporkan masalah keselamatan</h2>
+        <p class="text-muted">
+          Jumpa masalah keselamatan pada pintuniaga.my atau MyInvois Helper? Sila emel <a
+            class="text-primary underline break-all"
+            href={`${EMAIL_HREF}?subject=SECURITY`}>{EMAIL}</a
+          > dengan subjek <strong>SECURITY</strong>. Kami berusaha membalas dalam masa <strong>5 hari bekerja</strong>.
+          Sila jangan dedahkan masalah tersebut kepada umum sehingga ia dibaiki.
+        </p>
+        <p class="text-muted mt-2 text-sm">
+          To report a security issue, email us with the subject "SECURITY". We aim to reply within 5 working days.
+          Please do not disclose it publicly before it is fixed.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
 </Layout>

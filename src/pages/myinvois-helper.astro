@@ -128,4 +128,12 @@ const steps = [
       { variant: 'primary', text: 'Lihat di GitHub', href: GITHUB_URL, target: '_blank', icon: 'tabler:brand-github' },
     ]}
   />
+
+  <WidgetWrapper containerClass="max-w-4xl mx-auto">
+    <p class="text-center text-sm text-muted">
+      Dengan menggunakan MyInvois Helper, anda bersetuju dengan{' '}
+      <a class="text-primary underline" href={getPermalink('/terma')}>Terma Penggunaan</a> dan{' '}
+      <a class="text-primary underline" href={getPermalink('/privasi')}>Dasar Privasi</a> kami.
+    </p>
+  </WidgetWrapper>
 </Layout>
