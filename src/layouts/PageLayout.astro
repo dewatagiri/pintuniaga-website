@@ -10,12 +10,13 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  icon?: string;
 }
 
-const { metadata } = Astro.props;
+const { metadata, icon } = Astro.props;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} icon={icon}>
   <slot name="head" slot="head" />
   {
     /*

@@ -9,6 +9,7 @@ import { Icon } from 'astro-icon/components';
 import { getPermalink } from '~/utils/permalinks';
 import { EMAIL, EMAIL_HREF } from '~/utils/contact';
 
+const ICON_URL = '/myinvois-helper/icon.svg';
 const GITHUB_URL = 'https://github.com/dewatagiri/myinvois-helper';
 const MCP_URL = 'https://myinvois-helper.onrender.com/mcp';
 
@@ -70,7 +71,7 @@ const tests = [
 ];
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} icon={ICON_URL}>
   <Hero
     tagline="Free e-invoice helper · English"
     actions={[
@@ -79,6 +80,7 @@ const tests = [
     ]}
   >
     <Fragment slot="title">
+      <img src={ICON_URL} alt="" width="48" height="48" class="inline-block w-12 h-12 mr-3 align-middle" />
       MyInvois Helper: <span class="text-primary">LHDN e-invoicing</span> made easier
     </Fragment>
     <Fragment slot="subtitle">
