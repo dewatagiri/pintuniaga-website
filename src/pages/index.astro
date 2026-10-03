@@ -1,0 +1,133 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { Icon } from 'astro-icon/components';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+import { getPermalink } from '~/utils/permalinks';
+import { EMAIL, EMAIL_HREF } from '~/utils/contact';
+
+const metadata = {
+  title: 'PintuNiaga — Automasi AI untuk PKS Malaysia',
+  ignoreTitleTemplate: true,
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    description: METADATA?.description,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    email: EMAIL,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+  },
+];
+
+const helperPoints = [
+  'Semak sama ada perniagaan anda wajib mengeluarkan e-Invois',
+  'Draf invois sedia-MyInvois lengkap dengan pengiraan SST',
+  'Cadangan kod klasifikasi LHDN untuk setiap item',
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <Hero
+    tagline="Work smarter with AI"
+    actions={[
+      { variant: 'primary', text: 'Emel Kami', href: EMAIL_HREF, icon: 'tabler:mail' },
+      { text: 'Cuba MyInvois Helper', href: getPermalink('/myinvois-helper') },
+    ]}
+  >
+    <Fragment slot="title">
+      Bantu PKS Malaysia <span class="text-primary">automasikan kerja harian</span> dengan AI
+    </Fragment>
+    <Fragment slot="subtitle">
+      PintuNiaga membantu perniagaan kecil dan sederhana menjimatkan masa — daripada e-Invois LHDN hingga balasan
+      WhatsApp dan laman web — supaya anda boleh fokus pada pelanggan.
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="perkhidmatan"
+    tagline="Perkhidmatan"
+    title="Apa yang kami bantu"
+    subtitle="Tiga perkhidmatan utama untuk memudahkan operasi harian perniagaan anda."
+    columns={3}
+    items={[
+      {
+        title: 'Setup e-Invois LHDN',
+        description:
+          'Kami bantu anda bersedia untuk e-Invois: semak keperluan, sediakan maklumat perniagaan dan susun aliran kerja invois yang mematuhi MyInvois.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Automasi WhatsApp',
+        description:
+          'Balasan automatik, makluman pesanan dan susulan pelanggan melalui WhatsApp — supaya tiada pertanyaan pelanggan yang terlepas.',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'Laman Web & SEO',
+        description:
+          'Laman web yang kemas, pantas dan mesra telefon bimbit, disusun supaya perniagaan anda mudah dijumpai di Google.',
+        icon: 'tabler:world-www',
+      },
+    ]}
+  />
+
+  <WidgetWrapper id="myinvois-helper" containerClass="max-w-5xl mx-auto">
+    <div class="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-10">
+      <Headline
+        tagline="Alat Percuma"
+        title="MyInvois Helper"
+        subtitle="Alat AI percuma untuk membantu anda menyediakan e-Invois LHDN terus di dalam Claude."
+        classes={{
+          container: 'max-w-3xl text-left mb-6 md:mb-8',
+          title: 'text-3xl md:text-4xl font-bold font-heading',
+        }}
+      />
+      <ul class="space-y-3 mb-6">
+        {
+          helperPoints.map((point) => (
+            <li class="flex items-start gap-3 text-lg">
+              <Icon name="tabler:circle-check" class="w-6 h-6 mt-0.5 shrink-0 text-primary" />
+              <span>{point}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="text-muted mb-8">
+        Alat ini hanya menyediakan draf. Ia tidak menghantar apa-apa kepada LHDN dan tidak menyimpan data anda.
+      </p>
+      <Button variant="primary" text="Ketahui lebih lanjut" href={getPermalink('/myinvois-helper')} />
+    </div>
+  </WidgetWrapper>
+
+  <CallToAction
+    layout="banner"
+    title="Emel Kami"
+    subtitle={`Ceritakan kerja harian yang ingin anda automasikan. Hantar emel ke ${EMAIL}.`}
+    actions={[{ variant: 'primary', text: 'Emel Kami', href: EMAIL_HREF, icon: 'tabler:mail' }]}
+  />
+</Layout>

@@ -1,0 +1,65 @@
+site:
+  name: PintuNiaga
+  site: 'https://pintuniaga.my'
+  base: '/'
+  trailingSlash: false
+
+# Contact details used across the whole site.
+contact:
+  email: pintuniaga.official@gmail.com
+  # WhatsApp number in international format, digits only (example: '60123456789').
+  # Leave empty ('') to hide every WhatsApp button and link on the site.
+  whatsapp: ''
+
+# Default SEO metadata
+metadata:
+  title:
+    default: PintuNiaga — Automasi AI untuk PKS Malaysia
+    template: '%s — PintuNiaga'
+  description: 'PintuNiaga membantu PKS Malaysia mengautomasikan kerja harian dengan AI: setup e-Invois LHDN, automasi WhatsApp, serta laman web & SEO.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: PintuNiaga
+    type: website
+    locale: ms_MY
+
+i18n:
+  language: ms
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 8
+    post:
+      isEnabled: false
+      permalink: '/%slug%'
+      robots:
+        index: false
+    list:
+      isEnabled: false
+      pathname: 'blog'
+      robots:
+        index: false
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: false
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'light:only'

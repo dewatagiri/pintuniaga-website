@@ -1,0 +1,131 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import { Icon } from 'astro-icon/components';
+import { getPermalink } from '~/utils/permalinks';
+
+const GITHUB_URL = 'https://github.com/dewatagiri/myinvois-helper';
+const MCP_URL = 'https://myinvois-helper.onrender.com/mcp';
+
+const metadata = {
+  title: 'MyInvois Helper — Alat e-Invois LHDN Percuma',
+  description:
+    'MyInvois Helper ialah alat AI percuma untuk menyemak keperluan e-Invois, menyediakan draf invois sedia-MyInvois dengan SST dan mencadangkan kod klasifikasi LHDN.',
+};
+
+const steps = [
+  { title: 'Buka Claude', description: 'Log masuk ke Claude di pelayar web atau aplikasi desktop.' },
+  { title: 'Pergi ke Settings → Connectors', description: 'Buka menu Settings, kemudian pilih Connectors.' },
+  { title: 'Klik "Add custom connector"', description: 'Pilih untuk menambah connector baharu secara manual.' },
+  {
+    title: 'Masukkan URL',
+    description: 'Tampal alamat di bawah sebagai URL connector, kemudian simpan.',
+    code: MCP_URL,
+  },
+  {
+    title: 'Mula bertanya',
+    description:
+      'Contoh: "Adakah perniagaan saya wajib mengeluarkan e-Invois?" atau "Sediakan draf invois untuk pelanggan saya."',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Free e-invoice helper"
+    actions={[
+      { variant: 'primary', text: 'Cara tambah dalam Claude', href: '#cara-guna' },
+      { text: 'Lihat di GitHub', href: GITHUB_URL, target: '_blank', icon: 'tabler:brand-github' },
+    ]}
+  >
+    <Fragment slot="title">
+      MyInvois Helper: <span class="text-primary">e-Invois LHDN</span> lebih mudah
+    </Fragment>
+    <Fragment slot="subtitle">
+      Alat percuma daripada PintuNiaga yang membantu perniagaan Malaysia menyediakan e-Invois terus di dalam pembantu AI
+      seperti Claude.
+    </Fragment>
+  </Hero>
+
+  <Features
+    tagline="Apa yang ia buat"
+    title="Tiga fungsi utama"
+    columns={3}
+    items={[
+      {
+        title: 'Semak keperluan e-Invois',
+        description: 'Ketahui sama ada perniagaan anda wajib mengeluarkan e-Invois, dan bila ia bermula.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Draf invois dengan SST',
+        description: 'Sediakan draf invois sedia-MyInvois, termasuk pengiraan SST dan senarai semak kelengkapan.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Cadangan kod klasifikasi',
+        description: 'Dapatkan cadangan kod klasifikasi LHDN yang sesuai untuk barangan atau perkhidmatan anda.',
+        icon: 'tabler:tags',
+      },
+    ]}
+  />
+
+  <WidgetWrapper containerClass="max-w-4xl mx-auto">
+    <div class="rounded-2xl border border-amber-300 bg-amber-50 p-6 md:p-8 flex gap-4 items-start">
+      <Icon name="tabler:info-circle" class="w-7 h-7 shrink-0 text-amber-600" />
+      <div>
+        <h2 class="text-xl font-bold mb-2">Draf sahaja — anda kekal mengawal</h2>
+        <p class="text-muted">
+          MyInvois Helper hanya menyediakan draf. Ia <strong>tidak menghantar</strong> invois kepada LHDN dan{' '}
+          <strong>tidak menyimpan</strong> data anda. Semak draf sebelum anda menghantarnya sendiri melalui portal MyInvois
+          atau sistem perakaunan anda. Butiran lanjut di <a
+            class="text-primary underline"
+            href={getPermalink('/privasi')}>halaman Privasi</a
+          >.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <WidgetWrapper id="cara-guna" containerClass="max-w-4xl mx-auto">
+    <Headline
+      tagline="Cara guna"
+      title="Tambah MyInvois Helper dalam Claude"
+      subtitle="Hanya beberapa langkah mudah."
+    />
+    <ol class="space-y-6">
+      {
+        steps.map((step, index) => (
+          <li class="flex gap-4">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white font-bold">
+              {index + 1}
+            </span>
+            <div class="min-w-0 pt-1.5">
+              <h3 class="text-lg font-bold">{step.title}</h3>
+              <p class="text-muted mt-1">{step.description}</p>
+              {step.code && (
+                <code class="mt-3 block break-all rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-mono select-all">
+                  {step.code}
+                </code>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </WidgetWrapper>
+
+  <CallToAction
+    layout="banner"
+    title="Sumber terbuka"
+    subtitle="Kod sumber MyInvois Helper tersedia secara terbuka di GitHub."
+    actions={[
+      { variant: 'primary', text: 'Lihat di GitHub', href: GITHUB_URL, target: '_blank', icon: 'tabler:brand-github' },
+    ]}
+  />
+</Layout>

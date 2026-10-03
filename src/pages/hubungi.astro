@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import { Icon } from 'astro-icon/components';
+import { EMAIL, EMAIL_HREF, WHATSAPP_HREF } from '~/utils/contact';
+
+const metadata = {
+  title: 'Hubungi',
+  description: 'Hubungi PintuNiaga untuk automasi AI, setup e-Invois LHDN, automasi WhatsApp serta laman web & SEO.',
+};
+---
+
+<Layout metadata={metadata}>
+  <WidgetWrapper containerClass="max-w-3xl mx-auto">
+    <Headline
+      tagline="Get in touch"
+      title="Hubungi Kami"
+      subtitle="Ada soalan atau ingin mula mengautomasikan perniagaan anda? Kami sedia membantu."
+      classes={{ title: 'text-4xl md:text-5xl font-bold font-heading' }}
+    />
+    <div class="grid gap-4">
+      <a
+        href={EMAIL_HREF}
+        class="flex items-center gap-4 rounded-2xl border border-gray-200 p-5 md:p-6 transition hover:border-primary hover:shadow-md"
+      >
+        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <Icon name="tabler:mail" class="w-6 h-6" />
+        </span>
+        <span class="min-w-0">
+          <span class="block text-sm text-muted">Emel</span>
+          <span class="block text-lg font-semibold break-all">{EMAIL}</span>
+        </span>
+      </a>
+      {
+        WHATSAPP_HREF && (
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-4 rounded-2xl border border-gray-200 p-5 md:p-6 transition hover:border-primary hover:shadow-md"
+          >
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-[#128C7E]">
+              <Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
+            </span>
+            <span class="min-w-0">
+              <span class="block text-sm text-muted">WhatsApp</span>
+              <span class="block text-lg font-semibold">Mesej kami di WhatsApp</span>
+            </span>
+          </a>
+        )
+      }
+    </div>
+  </WidgetWrapper>
+</Layout>
